@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:16
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: mustage
+      POSTGRES_PASSWORD: randompassword
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
