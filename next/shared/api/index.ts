@@ -1,1 +1,1 @@
-export { AxiosMutation } from "./axios";
+export { AxiosMutation, AxiosQuery } from "./axios";
