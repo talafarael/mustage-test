@@ -5,13 +5,13 @@ export class UpdateTaskDto {
   @ApiProperty({ example: 'my title' })
   @IsOptional()
   @IsString()
-  title: string;
+  title?: string;
   @ApiProperty({ example: 'description ' })
   @IsOptional()
   @IsString()
-  description: string;
+  description?: string;
   @ApiProperty({ example: 'false' })
   @IsOptional()
   @IsBoolean()
-  done: boolean;
+  done?: boolean;
 }

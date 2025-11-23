@@ -6,7 +6,7 @@ import { Task } from '@prisma/client';
 
 @Injectable()
 export class TasksService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
   async getTasks(search?: string, done?: boolean): Promise<Task[]> {
     const where: any = {};
 
@@ -34,7 +34,7 @@ export class TasksService {
       throw new Error('Create task  failed');
     }
   }
-  async udpateTask(data: UpdateTaskDto, id: string): Promise<Task> {
+  async updateTask(data: UpdateTaskDto, id: string): Promise<Task> {
     try {
       return this.prisma.task.update({
         where: {

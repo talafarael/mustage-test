@@ -14,7 +14,7 @@ import { TasksService } from './tasks.service';
 
 @Controller('tasks')
 export class TasksController {
-  constructor(private readonly tasksService: TasksService) { }
+  constructor(private readonly tasksService: TasksService) {}
   @Get('')
   async getTask(
     @Query('search') search?: string,
@@ -30,7 +30,7 @@ export class TasksController {
   }
   @Patch(':id')
   async changeTask(@Param('id') id: string, @Body() data: UpdateTaskDto) {
-    return await this.tasksService.udpateTask(data, id);
+    return await this.tasksService.updateTask(data, id);
   }
 
   @Delete(':id')
