@@ -5,10 +5,10 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/dialog";
-import { SharedButton } from "@/shared/ui/button";
-import { ModalWindows } from "@/shared/ui/modal-windows";
+import { ModalWindow } from "@/shared/ui/modal-window";
 import { useState } from "react";
 import { useDeleteTask } from "../../hooks/use-task-api";
+import { Button } from "@/components/ui/button";
 
 export interface DeleteTaskProps {
   taskId: string;
@@ -25,7 +25,7 @@ export const DeleteTask = ({ taskId }: DeleteTaskProps) => {
     setOpen(false);
   };
   return (
-    <ModalWindows
+    <ModalWindow
       textOpenWindow="Delete task"
       open={open}
       onOpenChange={setOpen}
@@ -43,21 +43,21 @@ export const DeleteTask = ({ taskId }: DeleteTaskProps) => {
         </div>
       )}
       <DialogFooter>
-        <SharedButton
+        <Button
           variant="outline"
           onClick={handleCloseWindow}
           disabled={isPending}
         >
           Cancel
-        </SharedButton>
-        <SharedButton
+        </Button>
+        <Button
           variant="destructive"
           onClick={handleDeleteTask}
           disabled={isPending}
         >
           {isPending ? "Deleting..." : "Delete"}
-        </SharedButton>
+        </Button>
       </DialogFooter>
-    </ModalWindows>
+    </ModalWindow>
   );
 };

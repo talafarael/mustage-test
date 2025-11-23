@@ -1,7 +1,7 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { DialogContent, DialogTrigger, Dialog } from "@/components/ui/dialog";
 import { ReactNode } from "react";
-import { SharedButton } from "@/shared/ui/button";
 
 export interface ModalWindowProps {
   children: ReactNode;
@@ -18,7 +18,7 @@ export const ModalWindow = ({
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogTrigger asChild>
-        <SharedButton variant="outline">{textOpenWindow}</SharedButton>
+        <Button variant="outline">{textOpenWindow}</Button>
       </DialogTrigger>
       <DialogContent>{children}</DialogContent>
     </Dialog>

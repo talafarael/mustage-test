@@ -1,5 +1,5 @@
-import { TaskModel } from "@/entites/task/model/task.model";
+import { Task } from "@/entities";
 
-export interface UpdateTaskDto extends Partial<TaskModel> {
+export interface UpdateTaskDto extends Partial<Task> {
   taskId: string;
 }

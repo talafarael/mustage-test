@@ -1,11 +1,10 @@
 "use client";
-import { DialogHeader } from "@/components/ui/dialog";
-import { ModalWindows } from "@/shared/ui/modal-windows";
+import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { FormTask } from "../form-task";
 import { CreateTaskDto } from "../../dto/create-task.dto";
-import { DialogTitle } from "@radix-ui/react-dialog";
 import { useCreateTask } from "../../hooks/use-task-api";
 import { useState } from "react";
+import { ModalWindow } from "@/shared";
 
 export const CreateTask = () => {
   const [open, setOpen] = useState(false);
@@ -18,7 +17,7 @@ export const CreateTask = () => {
     });
   };
   return (
-    <ModalWindows
+    <ModalWindow
       textOpenWindow="Create task"
       open={open}
       onOpenChange={setOpen}
@@ -31,6 +30,6 @@ export const CreateTask = () => {
         isLoading={isPending}
         handlerSubmit={handlerSubmit}
       />
-    </ModalWindows>
+    </ModalWindow>
   );
 };

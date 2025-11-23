@@ -1,15 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { TaskModel } from "@/entites/task/model/task.model";
 import { DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ModalWindows } from "@/shared/ui/modal-windows";
 import { FormTask } from "../form-task";
 import { CreateTaskDto } from "../../dto/create-task.dto";
 import { useUpdateTask } from "../../hooks/use-task-api";
+import { Task } from "@/entities";
+import { ModalWindow } from "@/shared";
 
 export interface UpdateTaskProps {
-  task: TaskModel;
+  task: Task;
 }
 export const UpdateTask = ({ task }: UpdateTaskProps) => {
   const [open, setOpen] = useState(false);
@@ -24,7 +24,7 @@ export const UpdateTask = ({ task }: UpdateTaskProps) => {
         onSuccess: () => {
           setOpen(false);
         },
-      }
+      },
     );
   };
   const mockData: CreateTaskDto = {
@@ -32,7 +32,7 @@ export const UpdateTask = ({ task }: UpdateTaskProps) => {
     description: task?.description ?? undefined,
   };
   return (
-    <ModalWindows
+    <ModalWindow
       textOpenWindow="Update task"
       open={open}
       onOpenChange={setOpen}
@@ -46,6 +46,6 @@ export const UpdateTask = ({ task }: UpdateTaskProps) => {
         mockData={mockData}
         handlerSubmit={handlerSubmit}
       />
-    </ModalWindows>
+    </ModalWindow>
   );
 };

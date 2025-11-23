@@ -6,9 +6,9 @@ import { formTaskData } from "./form-task.data";
 import { TextareaController } from "@/shared/ui/textarea-controller";
 import { formTaskSchema } from "../../schemas/form-task.schema";
 import { CreateTaskDto } from "../../dto/create-task.dto";
-import { SharedButton } from "@/shared/ui/button";
 import { InputController } from "@/shared/ui/input-controller";
 import { Spinner } from "@/components/ui/spinner";
+import { Button } from "@/components/ui/button";
 
 export interface FormTaskProps {
   handlerSubmit: (data: CreateTaskDto) => void;
@@ -60,7 +60,7 @@ export const FormTask = ({
         }
       })}
       {error ?? <p className="text-[red]">{error}</p>}
-      <SharedButton disabled={isLoading} type="submit">
+      <Button disabled={isLoading} type="submit">
         {isLoading ? (
           <div>
             <Spinner />
@@ -69,7 +69,7 @@ export const FormTask = ({
         ) : (
           "Submit"
         )}
-      </SharedButton>
+      </Button>
     </form>
   );
 };

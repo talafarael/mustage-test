@@ -1,7 +1,7 @@
 "use client";
 
-import { ListTasks } from "@/entites/task/ui/list-tasks";
+import { MediatorTask } from "@/entities";
 
 export const MainPage = () => {
-  return <ListTasks />;
+  return <MediatorTask />;
 };

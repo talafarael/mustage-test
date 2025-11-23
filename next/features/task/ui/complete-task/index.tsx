@@ -1,12 +1,12 @@
 "use client";
-import { SharedCheckbox } from "@/shared/ui/checkbox";
-import { TaskModel } from "../../model/task.model";
 import { useUpdateTask } from "@/features/task/hooks/use-task-api";
+import { Task } from "@/entities";
+import { Checkbox } from "@/components/ui/checkbox";
 
-export interface CheckboxTaskProps {
-  task: TaskModel;
+export interface CompleteTaskProps {
+  task: Task;
 }
-export const CheckboxTask = ({ task }: CheckboxTaskProps) => {
+export const CompleteTask = ({ task }: CompleteTaskProps) => {
   const { mutate: updateTask } = useUpdateTask();
 
   const handlerChange = (state: boolean) => {
@@ -15,5 +15,5 @@ export const CheckboxTask = ({ task }: CheckboxTaskProps) => {
       taskId: task.id,
     });
   };
-  return <SharedCheckbox checked={task.done} onChange={handlerChange} />;
+  return <Checkbox checked={task.done} onCheckedChange={handlerChange} />;
 };

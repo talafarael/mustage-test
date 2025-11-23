@@ -6,12 +6,13 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { TaskModel } from "../../model/task.model";
 import { UpdateTask } from "@/features/task/ui/update-task";
 import { DeleteTask } from "@/features/task/ui/delete-task";
-import { CheckboxTask } from "../checkbox-task";
+import { CompleteTask } from "@/features/task/ui/complete-task";
+import { Task } from "../../models";
+
 export interface CardTaskProps {
-  task: TaskModel;
+  task: Task;
 }
 export const CardTask = ({ task }: CardTaskProps) => {
   return (
@@ -25,7 +26,7 @@ export const CardTask = ({ task }: CardTaskProps) => {
           {task.title}
         </CardTitle>
         <div className="mt-1 flex-shrink-0">
-          <CheckboxTask task={task} />
+          <CompleteTask task={task} />
         </div>
       </CardHeader>
       {task.description && (
